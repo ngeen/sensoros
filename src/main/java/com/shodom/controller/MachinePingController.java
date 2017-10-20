@@ -18,7 +18,7 @@ public class MachinePingController {
 	@Autowired
 	private MachinePingRepository repository;
 	
-	@RequestMapping(value = "/listMachines", method = RequestMethod.GET)
+	@RequestMapping(value = "/listMachinePings", method = RequestMethod.GET)
 	public ResponseEntity<?> listMachines() {
 		
 		return new ResponseEntity<List<MachinePing>>(repository.findAll(), HttpStatus.CREATED);

@@ -1,5 +1,7 @@
 package com.shodom.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.shodom.model.Machine;
+import com.shodom.model.MachinePing;
 import com.shodom.repository.MachineRepository;
 
 @RestController
@@ -56,6 +59,12 @@ public class MachineController {
 		repository.delete(machine);
 		
 		return new ResponseEntity<String>(mac.name+" Makinesin Silindi.", HttpStatus.CREATED);
+    }
+	
+	@RequestMapping(value = "/listMachines", method = RequestMethod.GET)
+	public ResponseEntity<?> listMachines() {
+		
+		return new ResponseEntity<List<Machine>>(repository.findAll(), HttpStatus.CREATED);
     }
 
 }
