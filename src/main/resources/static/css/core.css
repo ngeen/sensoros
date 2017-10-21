@@ -1,0 +1,47 @@
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {
+	height: 550px
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+	background-color: #f1f1f1;
+	height: 100%;
+}
+
+/* On small screens, set height to 'auto' for the grid */
+@media screen and (max-width: 767px) {
+	.row.content {
+		height: auto;
+	}
+}
+
+.hiddenRow {
+	padding: 0 !important;
+}
+
+.servive-block {
+	padding: 0px;
+	border-radius: 17px;
+	background-color: #4ADFCC;
+	color: white;
+	width: 150px;
+	box-shadow: 2px 2px 2px 2px #E0E0E0;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.servive-block  p,
+.servive-block  h2,
+.servive-block  h3{
+	margin : 5px;
+	color: #ffffff;
+}
+
+.servive-block-green {
+  background: #2ecc71;
+}
+
+.servive-block-red {
+  background: #e74c3c;
+}

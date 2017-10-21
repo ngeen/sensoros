@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorator="layout/default">
+<head>
+<title>Browser Detayları</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/core.css}" />
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/ua-parser.min.js}"></script>
+<script>
+	function tabloOlustur(browserProp, itemId) {
+		var parser = new UAParser();
+		var obj = JSON.parse(browserProp);
+		parser.setUA(obj[0].value);
+		var result = parser.getResult();
+		var txt = result.browser.name + " " + result.browser.version + "<br />"
+				+ result.os.name + " " + result.os.version+"<br />"
+				+ ((typeof result.cpu.architecture === "undefined") ? "" : result.cpu.architecture);
+
+		$("#" + itemId).html(txt);
+	}
+	
+	function trColor() {
+		$("tr").each(function() {
+			var className = $(this).attr('class');
+			if (typeof className != "undefined") {
+				classColor="#"+className.substring(0,6);
+				$('.'+className).css({"background-color":classColor});
+			}
+	        
+	    });
+		
+	    
+	    
+	}
+	
+	$(window).load(function() {
+		trColor();
+	});
+	
+</script>
+</head>
+<body>
+
+	<section layout:fragment="content">
+		<table class="table table-condensed"
+			style="border-collapse: collapse;">
+			<thead>
+				<tr>
+					<th>Ad Soyad</th>
+					<th>Kullanıcı Adı</th>
+					<th>Tarih</th>
+					<th>İp Adresi</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr th:if="${browserDetay.empty}">
+					<td colspan="4">Kayıt Bulunamadı</td>
+				</tr>
+
+				<th:block th:each="customer,iter : ${browserDetay}">
+
+					<tr data-toggle="collapse"
+						th:attr="data-target=${'#demo'+iter.index}"
+						th:if="${customer.browserProp}!=''"
+						th:onclick="'tabloOlustur(\'' + ${customer.browserProp} + '\', \'' + ${'demo'+iter.index} + '\' );'"
+						th:class="${customer.browserHash}">
+						<td th:text="${customer.adSoyad}">Kullanıcı Adı</td>
+						<td th:text="${customer.kullaniciAdi}">Tarih</td>
+						<td
+							th:text="${#dates.format(customer.tarih, 'dd-MM-yyyy HH:mm:ss')}">Farklı
+							İp Sayısı</td>
+						<td th:text="${customer.ip}">Farklı İp Sayısı</td>
+					</tr>
+					<tr>
+						<td colspan="4" class="hiddenRow">
+							<div th:id="${'demo'+iter.index}" class="collapse"></div>
+						</td>
+					</tr>
+				</th:block>
+			</tbody>
+		</table>
+	</section>
+
+</body>
+</html>
