@@ -1,15 +1,15 @@
-package com.shodom.controller;
+package com.shodom.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class IndexController {
+public class IndexWeb {
 
 	@RequestMapping("/")
 	public String ipAna(Model model) {
-		return "index";
+		return "main";
 		//return "redirect:/aktifKullanicilar";
 	}
 }
