@@ -9,5 +9,7 @@ public interface MachineRepository extends MongoRepository<Machine, String> {
 	public Machine findByName(String name);
 	
 	public Machine findByIp(String ip);
+	
+	public Machine findById(String id);
     
 }

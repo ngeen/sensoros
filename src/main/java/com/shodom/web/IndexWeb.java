@@ -12,4 +12,10 @@ public class IndexWeb {
 		return "main";
 		//return "redirect:/aktifKullanicilar";
 	}
+	
+	@RequestMapping("/machines")
+	public String machines(Model model) {
+		return "machines";
+		//return "redirect:/aktifKullanicilar";
+	}
 }

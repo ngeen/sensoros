@@ -11,7 +11,5 @@ public class MachinePing {
 	
 	public boolean access;
 	
-	public long pingSeq;
-	
 
 }
