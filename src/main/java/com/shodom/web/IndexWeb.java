@@ -9,13 +9,19 @@ public class IndexWeb {
 
 	@RequestMapping("/")
 	public String ipAna(Model model) {
-		return "main";
-		//return "redirect:/aktifKullanicilar";
+		//return "main";
+		return "redirect:/machinesPing";
 	}
 	
 	@RequestMapping("/machines")
 	public String machines(Model model) {
 		return "machines";
+		//return "redirect:/aktifKullanicilar";
+	}
+	
+	@RequestMapping("/machinesPing")
+	public String machinesPing(Model model) {
+		return "machinesPing";
 		//return "redirect:/aktifKullanicilar";
 	}
 }

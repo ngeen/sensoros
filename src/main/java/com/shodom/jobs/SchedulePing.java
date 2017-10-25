@@ -14,7 +14,7 @@ public class SchedulePing {
 	@Autowired
 	private MachineRepository machineRepository;
 
-	@Scheduled(fixedRate = 10000)
+	//@Scheduled(fixedRate = 10000)
 	public void reportCurrentTime() {
 		for (Machine mac : machineRepository.findAll()) {
 			PingEngine.getPing(mac.ip);

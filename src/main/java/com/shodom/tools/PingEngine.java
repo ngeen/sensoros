@@ -1,24 +1,23 @@
 package com.shodom.tools;
 
-import java.net.InetAddress;
+import org.icmp4j.IcmpPingRequest;
+import org.icmp4j.IcmpPingResponse;
+import org.icmp4j.IcmpPingUtil;
 
 public class PingEngine {
 
 	public static boolean getPing(String ip) {
 		boolean result = false;
-
 		try {
-			InetAddress address = InetAddress.getByName(ip);
-
-			if (address.isReachable(5000)) {
-				result = true;
-			} else {
-				result = false;
-			}
+			IcmpPingRequest request = IcmpPingUtil.createIcmpPingRequest();
+			request.setHost (ip);
+			IcmpPingResponse response = IcmpPingUtil.executePingRequest (request);
+			result = response.getSuccessFlag();
+			
 		} catch (Exception e) {
 			result = false;
 		}
-
+		
 		return result;
 
 	}

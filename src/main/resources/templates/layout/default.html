@@ -47,10 +47,8 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li th:class="${#strings.contains(#httpServletRequest.requestURI,'/aktifKullanicilar')} ? active : ''"><a th:href="@{'/aktifKullanicilar'}">Aktif Kullanici Listesi</a></li>
-					<li th:class="${#strings.contains(#httpServletRequest.requestURI,'/ipGirisGun')} ? active : ''"><a th:href="@{'/ipGirisGun'}">İp Sayısı Aynı Gün</a></li>
-					<li th:class="${#strings.contains(#httpServletRequest.requestURI,'/ipGirisSaat')} ? active : ''"><a th:href="@{'/ipGirisSaat'}">İp Sayısı 3 Saatlik Periyot</a></li>
-					<li th:class="${#strings.contains(#httpServletRequest.requestURI,'/browserGirisGun')} ? active : ''"><a th:href="@{'/browserGirisGun'}">Günlük Farklı Tarayıcı</a></li>
+					<li th:class="${#strings.contains(#httpServletRequest.requestURI,'/machinesPing')} ? active : ''"><a th:href="@{'/machinesPing'}">Machine Pings</a></li>
+					<li th:class="${#strings.contains(#httpServletRequest.requestURI,'/machines')} ? active : ''"><a th:href="@{'/machines'}">Machines</a></li>
 				</ul>
 			</div>
 		</div>
@@ -63,10 +61,8 @@
 					class="img-rounded" style="width: 75px; height: 75px;" />
 				<h2>Cadı Avı<small>v1.0(Beta)</small></h2>
 				<ul class="nav nav-pills nav-stacked">
-					<li th:class="${#strings.contains(#httpServletRequest.requestURI,'/aktifKullanicilar')} ? active : ''"><a th:href="@{'/aktifKullanicilar'}">Aktif Kullanici Listesi</a></li>
-					<li th:class="${#strings.contains(#httpServletRequest.requestURI,'/ipGirisGun')} ? active : ''"><a th:href="@{'/ipGirisGun'}">İp Sayısı Aynı Gün</a></li>
-					<li th:class="${#strings.contains(#httpServletRequest.requestURI,'/ipGirisSaat')} ? active : ''"><a th:href="@{'/ipGirisSaat'}">İp Sayısı 3 Saatlik Periyot</a></li>
-					<li th:class="${#strings.contains(#httpServletRequest.requestURI,'/browserGirisGun')} ? active : ''"><a th:href="@{'/browserGirisGun'}">Günlük Farklı Tarayıcı</a></li>
+					<li th:class="${#strings.contains(#httpServletRequest.requestURI,'/machinesPing')} ? active : ''"><a th:href="@{'/machinesPing'}">Machine Pings</a></li>
+					<li th:class="${#strings.contains(#httpServletRequest.requestURI,'/machines')} ? active : ''"><a th:href="@{'/machines'}">Machines</a></li>
 				</ul>
 			</div>
 

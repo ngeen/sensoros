@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorator="layout/default">
+<head>
+<title>Machines</title>
+<script src="/js/machinesPing.js"></script>
+</head>
+<body>
+
+	<section layout:fragment="content">
+
+		<div class="page-header">
+
+			<h1>
+				Machines Healt <small>Pinging Machines</small>
+			</h1>
+
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading" data-toggle="collapse"
+				data-target="#collapse1">
+				<h4 class="panel-title">
+						Machines Healt
+						<span class="pull-right" id="tarih"></span>
+				</h4>
+
+			</div>
+			<div id="collapse1" class="panel-collapse collapse in">
+				<div class="panel-body" id="machinesDiv"></div>
+			</div>
+		</div>
+
+
+	</section>
+
+</body>
+</html>
