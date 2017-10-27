@@ -11,5 +11,10 @@ public class MachinePing {
 	
 	public boolean access;
 	
+	public int	ttl;
+	
+	public int size;
+	
+	public long time;
 
 }
