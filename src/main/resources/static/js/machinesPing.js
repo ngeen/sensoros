@@ -74,6 +74,52 @@ var pingMachine = function(){
 	setTimeout(pingMachine, 20000);
 }
 
+var zoneHeat = function() {
+	$.ajax({
+		type : 'GET',
+		url : '/getHeat',
+		dataType : "json", // data type of response
+		success : renderHeat
+	});
+}
+
+var renderHeat = function(data) {
+	// JAX-RS serializes an empty list as null, and a 'collection of one' as an
+	// object (not an 'array of one')
+	var list = data == null ? [] : (data instanceof Array ? data : [ data ]);
+	
+	$('#heat > div ').each(function(index, obj){
+				var time = new Date();
+				var timeText = 
+				    ("0" + time.getHours()).slice(-2)   + ":" + 
+				    ("0" + time.getMinutes()).slice(-2) + ":" + 
+				    ("0" + time.getSeconds()).slice(-2);
+				$(obj).find(".lastUpdate").text("LastUpdate "+timeText);
+				$(obj).find(".temp").text('Temprature  '+data.temp.toFixed(2)+' °');
+				$(obj).find(".humidity").text('Humidity  % '+data.humidity.toFixed(2));
+		
+	});
+	
+	setTimeout(zoneHeat, 3000);
+}
+
 $(document).ready(function() {
+	
+	$('#heatDiv div').remove();
+	var div_var = "<div class=\"row\" id=\"heat\">";
+						
+						div_var += '<div class="col-md-2">'
+								+ '<div class="servive-block servive-block-gray">'
+								+ '<p class="lastUpdate"></p>'
+								+ '<img src="/img/dataCenter.png" class="img-responsive" />'
+								+ '<p class="temp"></p>'
+								+ '<p class="humidity"></p>'
+								+ '</div>' + '</div>';
+	
+	div_var += "</div>";
+	
+	$('#heatDiv').append(div_var);
+	
+	zoneHeat();
 	machineList();
 });
