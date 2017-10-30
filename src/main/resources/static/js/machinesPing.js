@@ -22,9 +22,10 @@ var renderList = function(data) {
 						
 						div_var += '<div class="col-md-2">'
 								+ '<div class="servive-block">'
-								+ '<p class="lastUpdate text-left"></p>'
 								+ '<input type="hidden" id="id" value="'+mac.id+'">'
+								+ '<h3>'+mac.name+'</h3>'
 								+ '<img src="/img/server.png" class="img-responsive" />'
+								+ '<p class="lastUpdate text-left"></p>'
 								+ '<h3>'+mac.ip+'</h3>'
 								+ '<p class="access text-left"></p>'
 								+ '<p class="time text-left"></p>'
